@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
-const local = 'mongodb://localhost:27017/dbOfVuongw';
+const local = 'mongodb+srv://db-mongodb-sgp1-99474-841772ec.mongo.ondigitalocean.com';
 
 async function connect() {
     try {
