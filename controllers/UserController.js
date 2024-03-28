@@ -12,13 +12,15 @@ async function register(username, phone, email, password) {
     } catch (error) {
         console.log(error);
     }
-    
     return null;
 }
 
 async function login(username, password) {
     try {
         const user = await Users.findOne({ $or: [{ phone: username }, { email: username }] });
+        if (user.status == 'deleted') {
+            return null;
+        }
         if (user) {
             if (user.password == password) {
                 return user;
@@ -48,4 +50,20 @@ async function updateUser(id, data) {
     }
     return null;
 }
-module.exports = { login, register, updateUser };
+
+// insert cart to user recive id of user and array product
+async function insertCart(id, cart) {
+    try {
+        const user = await Users.findOne({ _id: id });
+        if (user) {
+            user.cart = cart;
+            await user.save();
+            return user;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+    return null;
+}
+
+module.exports = { login, register, updateUser, insertCart };

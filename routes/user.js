@@ -59,5 +59,22 @@ router.post('/login', async function (req, res, next) {
     }
 });
 
+// insert cart to user recive id of user and array product
+router.post('/insertCart', async function (req, res, next) {
+    try {
+        const { id, cart } = req.body;
+        const Security = req.headers['security'];
+        if (Security != security) {
+            return res.status(401).json({ message: 'Unauthorized', status: false });
+        }
+        const user = await UserController.insertCart(id, cart);
+        if (!user) {
+            return res.status(400).json({ message: 'User not found', status: false });
+        }
+        res.status(200).json({ user: user, status: true });
+    } catch (error) {
+        res.status(500).json({ message: error.message, status: false });
+    }
+});
 
 module.exports = router;
