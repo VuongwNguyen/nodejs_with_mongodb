@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
-const local = 'mongodb+srv://db-mongodb-sgp1-99474-841772ec.mongo.ondigitalocean.com';
+const local = 'mongodb+srv://doadmin:H3fKp1D95rU2467k@db-mongodb-sgp1-99474-841772ec.mongo.ondigitalocean.com/admin?replicaSet=db-mongodb-sgp1-99474&tls=true&authSource=admin';
 
 async function connect() {
     try {
