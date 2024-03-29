@@ -1,4 +1,7 @@
 const Users = require('../models/Users')
+const bcrypt = require('bcryptjs');
+
+const salt = bcrypt.genSaltSync(10);
 
 async function register(username, phone, email, password) {
     try {
@@ -6,7 +9,8 @@ async function register(username, phone, email, password) {
         if (checkUser) {
             return null;
         }
-        const user = new Users({ username: username, password: password, phone: phone, email: email })
+        const hash = await bcrypt.hash(password, salt);
+        const user = new Users({ username: username, password: hash, phone: phone, email: email })
         await user.save()
         return user;
     } catch (error) {
@@ -18,11 +22,11 @@ async function register(username, phone, email, password) {
 async function login(username, password) {
     try {
         const user = await Users.findOne({ $or: [{ phone: username }, { email: username }] });
-        if (user.status == 'deleted') {
-            return null;
-        }
         if (user) {
-            if (user.password == password) {
+            if (user.status == 'deleted') {
+                return null;
+            }
+            if (await bcrypt.compare(password, user.password)) {
                 return user;
             }
         }
