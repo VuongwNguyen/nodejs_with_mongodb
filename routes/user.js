@@ -24,7 +24,6 @@ router.post('/register', async function (req, res, next) {
         if (!user) {
             return res.status(400).json({ message: 'User not found', status: false });
         }
-        // do not return password
         res.status(200).json({ user: user, status: true });
     } catch (error) {
         res.status(500).json({ message: error.message, status: false });

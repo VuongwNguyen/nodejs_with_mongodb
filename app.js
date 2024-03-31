@@ -11,6 +11,7 @@ var database = require('./conf/helper');
 var usersRouter = require('./routes/user');
 var productsRouter = require('./routes/product');
 var categoriesRouter = require('./routes/category');
+var adminRouter = require('./routes/admin');
 
 
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/product', productsRouter);
 app.use('/category', categoriesRouter);
+app.use('/admin', adminRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

@@ -72,6 +72,19 @@ router.get('/getAllCategory', async function (req, res, next) {
     }
 });
 
+router.get('/getCategoryNoneParent', async function (req, res, next) {
+    try {
+        const categories = await CategoryController.getCategoryNoneParent();
+        if (!categories) {
+            return res.status(400).json({ message: 'Category not found', status: false });
+        }
+        res.status(200).json({ categories: categories, status: true });
+    } catch (error) {
+        res.status(500).json({ message: error.message, status: false });
+    }
+});
+
+
 
 module.exports = router;
 

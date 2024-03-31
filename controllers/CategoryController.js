@@ -19,7 +19,6 @@ async function updateCategory(id, data) {
             throw new Error('Category not found');
         }
         category.set(data);
-        await category.save();
         return category;
     } catch (error) {
         console.log(error);
@@ -43,7 +42,17 @@ async function deleteCategory(id) {
 
 async function getAllCategory() {
     try {
-        const categories = await Categories.find({ parrent_id: null });
+        const categories = await Categories.find().populate({ path: 'parent_id', select: 'name' });
+        return categories;
+    } catch (error) {
+        console.log(error);
+    }
+    return null;
+}
+
+async function getCategoryNoneParent() {
+    try {
+        const categories = await Categories.find({ parent_id: null });
         return categories;
     } catch (error) {
         console.log(error);
@@ -55,5 +64,6 @@ module.exports = {
     createCategory,
     updateCategory,
     deleteCategory,
-    getAllCategory
+    getAllCategory,
+    getCategoryNoneParent
 }
