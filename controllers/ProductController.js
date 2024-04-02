@@ -7,8 +7,9 @@ async function createProduct(data) {
             return null;
         }
         const product = new Products(data);
-        await product.save();
-        return product;
+        const save = await product.save();
+        const result = await save.populate('category_id', 'name');
+        return result;
     } catch (error) {
         console.log(error);
     }
@@ -21,9 +22,8 @@ async function updateProduct(id, data) {
         if (!product) {
             return null;
         }
-        product.set(data);
-        await product.save();
-        return product;
+        const result = await product.set(data).populate('category_id', 'name');
+        return result;
     } catch (error) {
         console.log(error);
     }
@@ -54,7 +54,7 @@ async function getAllProduct() {
     return null;
 }
 
-async function getProductByCondition(id, limit=0, keyword, category_id) {
+async function getProductByCondition(id, limit = 0, keyword, category_id) {
     try {
         let condition = {};
         if (id) {
