@@ -3,8 +3,10 @@ const Categories = require('../models/Categories');
 async function createCategory(data) {
     try {
         const category = new Categories(data);
-        (await category.save()).populate({ path: 'parent_id', select: 'name' });
-        return category;
+        const saveCate = await category.save()
+        const returnCate = await saveCate.populate({ path: 'parent_id', select: 'name' });
+        console.log(returnCate);
+        return returnCate;
     }
     catch (error) {
         console.log(error);
@@ -18,8 +20,9 @@ async function updateCategory(id, data) {
         if (!category) {
             throw new Error('Category not found');
         }
-        category.set(data);
-        return category;
+        const result = await category.set(data).populate({ path: 'parent_id', select: 'name' });
+        console.log(result);
+        return result;
     } catch (error) {
         console.log(error);
     }
@@ -43,6 +46,7 @@ async function deleteCategory(id) {
 async function getAllCategory() {
     try {
         const categories = await Categories.find().populate({ path: 'parent_id', select: 'name' });
+        // console.log(categories);
         return categories;
     } catch (error) {
         console.log(error);
