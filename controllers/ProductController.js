@@ -46,7 +46,7 @@ async function deleteProduct(id) {
 
 async function getAllProduct() {
     try {
-        const products = await Products.find();
+        const products = await Products.find().populate('category_id', 'name');
         return products;
     } catch (error) {
         console.log(error);
@@ -66,7 +66,7 @@ async function getProductByCondition(id, limit=0, keyword, category_id) {
         if (category_id) {
             condition.category_id = category_id;
         }
-        let query = Products.find(condition);
+        let query = Products.find(condition).populate('category_id', 'name');
         if (limit) {
             query = query.limit(parseInt(limit));
         }
