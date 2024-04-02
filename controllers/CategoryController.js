@@ -3,7 +3,7 @@ const Categories = require('../models/Categories');
 async function createCategory(data) {
     try {
         const category = new Categories(data);
-        await category.save();
+        (await category.save()).populate({ path: 'parent_id', select: 'name' });
         return category;
     }
     catch (error) {
