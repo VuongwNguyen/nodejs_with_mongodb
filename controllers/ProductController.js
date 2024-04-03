@@ -1,4 +1,5 @@
 const Products = require('../models/Products');
+const Categories = require('../models/Categories');
 
 async function createProduct(data) {
     try {
@@ -92,13 +93,29 @@ async function deleteProductList(idList) {
     return null;
 }
 
+async function getProductWithCategory() {
+    try {
+        const categories = await Categories.find().lean().exec();
+        const CategoryWithProducts = await Promise.all(categories.map(async (category) => {
+            console.log(category._id);
+            const products = await Products.find({ category_id: category._id }).lean().exec();
+            return { category: category.name, products: products };
+        }));
+        return CategoryWithProducts;
+    } catch (error) {
+        console.log(error);
+    }
+    return null;
+}
+
 module.exports = {
     createProduct,
     updateProduct,
     deleteProduct,
     getAllProduct,
     getProductByCondition,
-    deleteProductList
+    deleteProductList,
+    getProductWithCategory,
 }
 
 

@@ -109,6 +109,19 @@ router.post('/deleteProductList', async function (req, res, next) {
     }
 });
 
+router.get('/getProductWithCategory', async function (req, res, next) {
+    try {
+        const CategoryWithProducts = await ProductController.getProductWithCategory();
+        if (!CategoryWithProducts) {
+            return res.status(400).json({ message: 'Product not found', status: false });
+        }
+        res.status(200).json({ products: CategoryWithProducts, status: true });
+    } catch (error) {
+        res.status(500).json({ message: error.message, status: false });
+        console.log(error);
+    }
+});
+
 
 
 

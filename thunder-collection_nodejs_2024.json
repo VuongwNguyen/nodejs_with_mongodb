@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "nodejs_2024",
-    "dateExported": "2024-03-28T17:04:13.440Z",
+    "dateExported": "2024-04-03T11:52:24.265Z",
     "version": "1.1",
     "folders": [
         {
@@ -24,6 +24,13 @@
             "containerId": "",
             "created": "2024-03-23T03:13:17.892Z",
             "sortNum": 30000
+        },
+        {
+            "_id": "eb8600e2-a366-4aea-81f8-8be3785e65f0",
+            "name": "admin",
+            "containerId": "",
+            "created": "2024-03-30T12:09:33.299Z",
+            "sortNum": 40000
         }
     ],
     "requests": [
@@ -32,11 +39,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "56c068a0-bd52-43c4-80dc-b32112999995",
             "name": "register",
-            "url": "http://localhost:3000/user/register",
+            "url": "https://lobster-app-wos9a.ondigitalocean.app/user/register",
             "method": "POST",
             "sortNum": 10000,
             "created": "2024-03-21T13:02:26.777Z",
-            "modified": "2024-03-28T15:50:29.336Z",
+            "modified": "2024-03-31T14:57:07.955Z",
             "headers": [
                 {
                     "name": "security",
@@ -46,7 +53,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"username\":\"Vuongw\",\n  \"password\":\"123456789\",\n  \"phone\":\"0975091673\",\n  \"email\":\"nguyenvuong134@gmail.com\"\n}",
+                "raw": "{\n  \"username\":\"Vuongw\",\n  \"password\":\"123456789\",\n  \"phone\":\"0975091673k5\",\n  \"email\":\"nguyenvuong134k5@gmail.com\"\n}",
                 "form": []
             },
             "tests": []
@@ -56,16 +63,16 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "56c068a0-bd52-43c4-80dc-b32112999995",
             "name": "login",
-            "url": "http://localhost:3000/user/login",
+            "url": "http://localhost:5000/user/login",
             "method": "POST",
             "sortNum": 20000,
             "created": "2024-03-21T13:39:02.529Z",
-            "modified": "2024-03-28T15:50:28.003Z",
+            "modified": "2024-03-29T12:18:05.384Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"username\":\"0975091673\",\n  \"password\":\"123456789\"\n}",
+                "raw": "{\n  \"username\":\"09750916735\",\n  \"password\":\"123456789\"\n}",
                 "form": []
             },
             "tests": []
@@ -75,11 +82,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "56c068a0-bd52-43c4-80dc-b32112999995",
             "name": "update",
-            "url": "http://localhost:3000/user/update",
+            "url": "http://localhost:5000/user/update",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-21T21:52:45.148Z",
-            "modified": "2024-03-28T13:13:27.275Z",
+            "modified": "2024-03-29T12:14:49.492Z",
             "headers": [
                 {
                     "name": "security",
@@ -99,11 +106,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "9967e359-4d55-40cb-9aed-c861c63f02c8",
             "name": "getAllProduct",
-            "url": "http://localhost:3000/product/getAllProduct",
+            "url": "http://localhost:5000/product/getAllProduct",
             "method": "GET",
             "sortNum": 50000,
             "created": "2024-03-23T00:53:03.973Z",
-            "modified": "2024-03-28T15:50:55.129Z",
+            "modified": "2024-03-29T12:15:32.120Z",
             "headers": [
                 {
                     "name": "security",
@@ -118,17 +125,16 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "9967e359-4d55-40cb-9aed-c861c63f02c8",
             "name": "getProductByCondition",
-            "url": "http://localhost:3000/product/getProductByCondition",
+            "url": "https://lobster-app-wos9a.ondigitalocean.app/product/getProductByCondition?id=66056d02ee1932d380ba9564",
             "method": "GET",
             "sortNum": 60000,
             "created": "2024-03-23T01:15:24.225Z",
-            "modified": "2024-03-23T14:53:56.603Z",
+            "modified": "2024-04-02T02:39:14.824Z",
             "headers": [],
             "params": [
                 {
                     "name": "id",
-                    "value": "65fe299e0a4ea83004c79106",
-                    "isDisabled": true,
+                    "value": "66056d02ee1932d380ba9564",
                     "isPath": false
                 },
                 {
@@ -157,11 +163,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "9967e359-4d55-40cb-9aed-c861c63f02c8",
             "name": "addProduct",
-            "url": "http://localhost:3000/product/createProduct",
+            "url": "http://localhost:5000/product/createProduct",
             "method": "POST",
             "sortNum": 70000,
             "created": "2024-03-23T01:23:38.652Z",
-            "modified": "2024-03-28T15:51:11.111Z",
+            "modified": "2024-03-29T12:15:37.053Z",
             "headers": [
                 {
                     "name": "security",
@@ -181,11 +187,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "9967e359-4d55-40cb-9aed-c861c63f02c8",
             "name": "updateProduct",
-            "url": "http://localhost:3000/product/updateProduct",
+            "url": "http://localhost:5000/product/updateProduct",
             "method": "POST",
             "sortNum": 80000,
             "created": "2024-03-23T01:41:35.401Z",
-            "modified": "2024-03-23T14:40:35.565Z",
+            "modified": "2024-03-29T12:15:42.017Z",
             "headers": [
                 {
                     "name": "security",
@@ -205,11 +211,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "9967e359-4d55-40cb-9aed-c861c63f02c8",
             "name": "deleteProduct",
-            "url": "http://localhost:3000/product/deleteProduct",
+            "url": "http://localhost:5000/product/deleteProduct",
             "method": "POST",
             "sortNum": 90000,
             "created": "2024-03-23T01:50:09.889Z",
-            "modified": "2024-03-25T16:15:46.430Z",
+            "modified": "2024-03-29T12:15:45.824Z",
             "headers": [
                 {
                     "name": "security",
@@ -229,11 +235,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "4f5a7c98-f134-4dd0-a238-4668530f7c17",
             "name": "createCategory",
-            "url": "http://localhost:3000/category/createCategory",
+            "url": "http://localhost:5000/category/createCategory",
             "method": "POST",
             "sortNum": 100000,
             "created": "2024-03-23T03:13:42.252Z",
-            "modified": "2024-03-28T15:51:39.655Z",
+            "modified": "2024-03-29T12:19:22.705Z",
             "headers": [
                 {
                     "name": "security",
@@ -243,7 +249,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"data\":{\n    \"name\":\"Cate4\",\n    \"description\":\"description\",\n    \"parent_id\":null\n  }\n}",
+                "raw": "{\n  \"data\":{\n    \"name\":\"Cate5\",\n    \"description\":\"description\",\n    \"parent_id\":null\n  }\n}",
                 "form": []
             },
             "tests": []
@@ -253,11 +259,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "4f5a7c98-f134-4dd0-a238-4668530f7c17",
             "name": "deleteCategory",
-            "url": "http://localhost:3000/category/deleteCategory",
+            "url": "http://localhost:5000/category/deleteCategory",
             "method": "POST",
             "sortNum": 110000,
             "created": "2024-03-23T13:27:05.201Z",
-            "modified": "2024-03-23T14:42:59.326Z",
+            "modified": "2024-03-29T12:16:25.896Z",
             "headers": [
                 {
                     "name": "security",
@@ -277,11 +283,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "4f5a7c98-f134-4dd0-a238-4668530f7c17",
             "name": "getAllCategory",
-            "url": "http://localhost:3000/category/getAllCategory",
+            "url": "http://localhost:5000/category/getAllCategory",
             "method": "GET",
             "sortNum": 120000,
             "created": "2024-03-23T13:27:23.494Z",
-            "modified": "2024-03-28T15:51:46.829Z",
+            "modified": "2024-04-01T18:24:26.869Z",
             "headers": [],
             "params": [],
             "tests": []
@@ -291,11 +297,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "4f5a7c98-f134-4dd0-a238-4668530f7c17",
             "name": "updateCategory",
-            "url": "http://localhost:3000/category/updateCategory",
+            "url": "http://localhost:5000/category/updateCategory",
             "method": "POST",
             "sortNum": 140000,
             "created": "2024-03-23T13:27:56.727Z",
-            "modified": "2024-03-23T14:50:14.166Z",
+            "modified": "2024-03-29T12:16:56.481Z",
             "headers": [
                 {
                     "name": "security",
@@ -315,11 +321,11 @@
             "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
             "containerId": "56c068a0-bd52-43c4-80dc-b32112999995",
             "name": "addCart",
-            "url": "http://localhost:3000/user/insertCart",
+            "url": "http://localhost:5000/user/insertCart",
             "method": "POST",
             "sortNum": 150000,
             "created": "2024-03-28T16:58:35.677Z",
-            "modified": "2024-03-28T17:03:14.656Z",
+            "modified": "2024-03-29T12:14:47.195Z",
             "headers": [
                 {
                     "name": "security",
@@ -329,9 +335,61 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"id\":\"66019e09cf4ab46b26d87d0f\",\n  \"cart\":[\n          {\n            \"product_id\":\"65fe299e0a4ea83004c79106\",\n            \"quantity\":\"3\"\n          },{\n            \"product_id\":\"65fe299e0a4ea83004c79107\",\n            \"quantity\":\"10\"\n          }\n    ]\n}",
+                "raw": "{\n  \"id\":\"6605a9182c8876bffbc2f294\",\n  \"cart\":[\n          {\n            \"product_id\":\"65fe299e0a4ea83004c79106\",\n            \"quantity\":\"3\"\n          },{\n            \"product_id\":\"65fe299e0a4ea83004c79107\",\n            \"quantity\":\"10\"\n          }\n    ]\n}",
                 "form": []
             },
+            "tests": []
+        },
+        {
+            "_id": "8ba1fa3c-b13b-4801-91aa-319477110aae",
+            "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
+            "containerId": "eb8600e2-a366-4aea-81f8-8be3785e65f0",
+            "name": "create",
+            "url": "https://lobster-app-wos9a.ondigitalocean.app/admin/createAdmin",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2024-03-30T12:12:33.074Z",
+            "modified": "2024-04-02T02:50:14.946Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"data\":{\n   \"username\":\"vuongww\",\n   \"password\":\"123\"\n }\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "349dbc6c-aeb9-4f8b-88ef-b7cd3f1a3aad",
+            "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
+            "containerId": "eb8600e2-a366-4aea-81f8-8be3785e65f0",
+            "name": "login",
+            "url": "http://localhost:5000/admin/loginByAdmin",
+            "method": "POST",
+            "sortNum": 180000,
+            "created": "2024-03-30T12:12:55.123Z",
+            "modified": "2024-03-30T12:13:21.700Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\":\"vuongww\",\n  \"password\":\"123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "468a23c2-f663-4b70-918b-8eff154589d0",
+            "colId": "50ba7855-24fd-4318-a3a4-6e82bfa94218",
+            "containerId": "4f5a7c98-f134-4dd0-a238-4668530f7c17",
+            "name": "getCategoryNoneParent",
+            "url": "http://localhost:5000/category/getCategoryNoneParent",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2024-03-31T03:31:06.984Z",
+            "modified": "2024-03-31T03:31:20.727Z",
+            "headers": [],
+            "params": [],
             "tests": []
         }
     ]
