@@ -21,7 +21,7 @@ async function register(username, phone, email, password) {
 
 async function login(username, password) {
     try {
-        const user = await Users.findOne({ $or: [{ phone: username }, { email: username }] });
+        const user = await Users.findOne({ $or: [{ phone: username }, { email: username }] }).populate('cart.product_id');
         if (user) {
             if (user.status == 'deleted') {
                 return null;
