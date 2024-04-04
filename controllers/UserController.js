@@ -27,7 +27,7 @@ async function login(username, password) {
                 return null;
             }
             if (await bcrypt.compare(password, user.password)) {
-                return user;
+                return user.populate('cart.product_id.category_id','name');
             }
         }
     } catch (error) {
