@@ -95,10 +95,10 @@ async function deleteProductList(idList) {
 
 async function getProductWithCategory() {
     try {
-        const categories = await Categories.find();
+        const categories = await Categories.find().lean().exec();
         const CategoryWithProducts = await Promise.all(categories.map(async (category) => {
             console.log(category._id);
-            const products = await Products.find({ category_id: category._id }).populate('category_id', 'name');
+            const products = await Products.find({ category_id: category._id }).populate('category_id', 'name').lean().exec();
             return { category: category.name, products: products };
         }));
         return CategoryWithProducts;
