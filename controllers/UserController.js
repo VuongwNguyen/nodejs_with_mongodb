@@ -58,11 +58,11 @@ async function updateUser(id, data) {
 // insert cart to user recive id of user and array product
 async function insertCart(id, cart) {
     try {
-        const user = await Users.findOne({ _id: id });
+        const user = await Users.findOne({ _id: id }).populate('cart.product_id');
         if (user) {
             user.cart = cart;
             await user.save();
-            return user;
+            return user.populate('cart.product_id.category_id', 'name');
         }
     } catch (error) {
         console.log(error);
@@ -70,15 +70,5 @@ async function insertCart(id, cart) {
     return null;
 }
 
-async function getUserById(id) {
-    try {
-        const user = await Users.findOne({ _id: id });
-        return user;
-    }
-    catch (error) {
-        console.log(error);
-    }
-    return null;
-}
 
-module.exports = { login, register, updateUser, insertCart, getUserById };
+module.exports = { login, register, updateUser, insertCart };
