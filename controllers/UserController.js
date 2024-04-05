@@ -58,11 +58,11 @@ async function updateUser(id, data) {
 // insert cart to user recive id of user and array product
 async function insertCart(id, cart) {
     try {
-        const user = await Users.findOne({ _id: id }).populate('cart.product_id');
+        const user = await Users.findOne({ _id: id });
         if (user) {
             user.cart = cart;
             await user.save();
-            return user.populate('cart.product_id.category_id', 'name');
+            return user.populate({ path: 'cart.product_id', populate: { path: 'category_id', select: 'name' } });
         }
     } catch (error) {
         console.log(error);
