@@ -21,6 +21,7 @@ async function updateCategory(id, data) {
             throw new Error('Category not found');
         }
         const result = await category.set(data).populate({ path: 'parent_id', select: 'name' });
+        await category.save();
         console.log(result);
         return result;
     } catch (error) {
