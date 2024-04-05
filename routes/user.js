@@ -78,4 +78,18 @@ router.post('/insertCart', async function (req, res, next) {
     }
 });
 
+// get user by id
+router.get('/getUser', async function (req, res, next) {
+    try {
+        const { id } = req.body;
+        const user = await UserController.getUser(id);
+        if (!user) {
+            return res.status(400).json({ message: 'User not found', status: false });
+        }
+        res.status(200).json({ user: user, status: true });
+    } catch (error) {
+        res.status(500).json({ message: error.message, status: false });
+    }
+});
+
 module.exports = router;

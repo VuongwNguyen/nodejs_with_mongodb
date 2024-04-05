@@ -27,7 +27,7 @@ async function login(username, password) {
                 return null;
             }
             if (await bcrypt.compare(password, user.password)) {
-                return user.populate('cart.product_id.category_id','name');
+                return user.populate('cart.product_id.category_id', 'name');
             }
         }
     } catch (error) {
@@ -70,4 +70,15 @@ async function insertCart(id, cart) {
     return null;
 }
 
-module.exports = { login, register, updateUser, insertCart };
+async function getUserById(id) {
+    try {
+        const user = await Users.findOne({ _id: id });
+        return user;
+    }
+    catch (error) {
+        console.log(error);
+    }
+    return null;
+}
+
+module.exports = { login, register, updateUser, insertCart, getUserById };

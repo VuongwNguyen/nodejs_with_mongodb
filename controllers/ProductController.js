@@ -10,6 +10,7 @@ async function createProduct(data) {
         const product = new Products(data);
         const save = await product.save();
         const result = await save.populate('category_id', 'name');
+        await product.save();
         return result;
     } catch (error) {
         console.log(error);
@@ -24,6 +25,7 @@ async function updateProduct(id, data) {
             return null;
         }
         const result = await product.set(data).populate('category_id', 'name');
+        await product.save();
         return result;
     } catch (error) {
         console.log(error);

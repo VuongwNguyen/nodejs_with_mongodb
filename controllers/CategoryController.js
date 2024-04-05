@@ -5,7 +5,6 @@ async function createCategory(data) {
         const category = new Categories(data);
         const saveCate = await category.save()
         const returnCate = await saveCate.populate({ path: 'parent_id', select: 'name' });
-        console.log(returnCate);
         return returnCate;
     }
     catch (error) {
