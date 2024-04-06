@@ -46,9 +46,13 @@ async function updateUser(id, data) {
             if (checkUser && checkUser._id != id) {
                 return null;
             }
+            const hash = await bcrypt.hash(data.password, salt);
             user.set(data);
+            user.password = hash;
             await user.save();
-            return user;
+            // user.set(data);
+            // await user.save();
+            // return user;
         }
     } catch (error) {
         console.log(error);
@@ -81,6 +85,7 @@ async function getOrderByUser(id) {
     }
     return null;
 }
+
 
 
 module.exports = { login, register, updateUser, insertCart, getOrderByUser };

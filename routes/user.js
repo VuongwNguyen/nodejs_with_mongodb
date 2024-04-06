@@ -82,7 +82,7 @@ router.post('/insertCart', async function (req, res, next) {
 router.get('/getUser', async function (req, res, next) {
     try {
         const { id } = req.query;
-        const user = await UserController.getUserById(id);
+        const user = await UserController.getOrderByUser(id);
         if (!user) {
             return res.status(400).json({ message: 'User not found', status: false });
         }
