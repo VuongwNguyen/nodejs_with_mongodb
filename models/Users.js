@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, require: true, unique: true },
     avatar: { type: String, default: null },
     status: { type: String, default: 'active', enum: ['active', 'inactive','deleted']},
+    address: { type: String },
     cart: { type: [{
         product_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Products' },
         quantity: { type: Number,  }

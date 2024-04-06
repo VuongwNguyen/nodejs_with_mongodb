@@ -1,4 +1,5 @@
 const Users = require('../models/Users')
+const Orders = require('../models/Orders')
 const bcrypt = require('bcryptjs');
 
 const salt = bcrypt.genSaltSync(10);
@@ -70,5 +71,16 @@ async function insertCart(id, cart) {
     return null;
 }
 
+async function getOrderByUser(id) {
+    try {
+        const user = await Orders.findOne({ User_id: id }).populate('products.product_id');
+        return user;
+    }
+    catch (error) {
+        console.log(error);
+    }
+    return null;
+}
 
-module.exports = { login, register, updateUser, insertCart };
+
+module.exports = { login, register, updateUser, insertCart, getOrderByUser };
