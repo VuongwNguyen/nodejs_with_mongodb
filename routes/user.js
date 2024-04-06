@@ -1,10 +1,6 @@
 const router = require('express').Router();
-
 const { security } = require('../conf/constant');
 const UserController = require('../controllers/UserController');
-
-
-
 
 // only add new, update, delete, use security, left uneeded
 

@@ -48,7 +48,7 @@ async function updateUser(id, data) {
             }
             user.set(data);
             await user.save();
-            return user;
+            return user.populate({ path: 'cart.product_id', populate: { path: 'category_id', select: 'name' } });
         }
     } catch (error) {
         console.log(error);
