@@ -6,6 +6,7 @@ const orderSchema = new mongoose.Schema({
         product_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Products' },
         quantity: { type: Number, required: true }
     }],
+    address: { type: String },
     status: { type: String, required: true, enum: ['pending', 'completed', 'canceled'] },
     payment: { type: String, required: true, enum: ['cash', 'credit_card'] },
     created_at: { type: Date, default: Date.now },
