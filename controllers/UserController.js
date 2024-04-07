@@ -73,7 +73,7 @@ async function insertCart(id, cart) {
 
 async function getOrderByUser(id) {
     try {
-        const user = await Orders.findOne({ User_id: id }).populate({path: 'products.product_id', populate: {path: 'category_id', select: 'name'}});
+        const user = await Orders.findOne({ User_id: id }).populate({ path: 'products.product_id', populate: { path: 'category_id', select: 'name' } });
         return user;
     }
     catch (error) {
@@ -82,7 +82,20 @@ async function getOrderByUser(id) {
     return null;
 }
 
+async function insertOrder(id, data) {
+    try {
+        const user = await Users.findOne({ _id: id });
+        if (user) {
+            const order = new Orders(data);
+            order.User_id = id;
+            await order.save();
+            return order;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
-module.exports = { login, register, updateUser, insertCart, getOrderByUser };
+module.exports = { login, register, updateUser, insertCart, getOrderByUser, insertOrder };
