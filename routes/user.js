@@ -78,11 +78,11 @@ router.post('/insertCart', async function (req, res, next) {
 router.get('/getOrderUser', async function (req, res, next) {
     try {
         const { id } = req.query;
-        const user = await UserController.getOrderByUser(id);
-        if (!user) {
+        const order = await UserController.getOrderByUser(id);
+        if (!order) {
             return res.status(400).json({ message: 'User not found', status: false });
         }
-        res.status(200).json({ user: user, status: true });
+        res.status(200).json({ order: order, status: true });
     } catch (error) {
         res.status(500).json({ message: error.message, status: false });
     }
@@ -91,11 +91,11 @@ router.get('/getOrderUser', async function (req, res, next) {
 router.post('/insertOrder', async function (req, res, next) {
     try {
         const { id, data } = req.body;
-        const user = await UserController.insertOrder(id, data);
-        if (!user) {
+        const order = await UserController.insertOrder(id, data);
+        if (!order) {
             return res.status(400).json({ message: 'User not found', status: false });
         }
-        res.status(200).json({ user: user, status: true });
+        res.status(200).json({ order: order, status: true });
     } catch (error) {
         res.status(500).json({ message: error.message, status: false });
     }
