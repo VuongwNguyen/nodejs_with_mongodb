@@ -37,4 +37,15 @@ async function getAllOrders() {
     return null;
 }
 
+// viết hàm xoá tất cả các đơn hàng có trong hệ thống
+async function deleteAllOrders() {
+    try {
+        await Orders.deleteMany();
+        return true;
+    } catch (error) {
+        console.log(error);
+    }
+    return false;
+}
+
 module.exports = { createAdmin, loginByAdmin, getAllOrders };
