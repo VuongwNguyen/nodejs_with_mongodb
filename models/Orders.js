@@ -7,7 +7,6 @@ const orderSchema = new mongoose.Schema({
         quantity: { type: Number, required: true }
     }],
     address: { type: String },
-    total: { type: Number, required: true },
     shipping_fee: { type: Number, required: true },
     status: { type: String, required: true, enum: ['pending', 'completed', 'canceled'] },
     payment: { type: String, required: true, enum: ['cash', 'credit_card'] },

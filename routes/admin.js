@@ -46,17 +46,17 @@ router.get('/getAllOrders', async function (req, res, next) {
 });
 
 
-// router.delete('/deleteAllOrders', async function (req, res, next) { 
-//     try {
-//         const result = await AdminController.deleteAllOrders();
-//         if (!result) {
-//             res.status(400).json({ message: 'Delete orders failed', status: false });
-//             return;
-//         }
-//         res.status(200).json({ message: 'Delete orders successfully', status: true });
-//     } catch (error) {
-//         res.status(500).json({ message: error.message, status: false });
-//     }
-// });
+router.delete('/deleteAllOrders', async function (req, res, next) { 
+    try {
+        const result = await AdminController.deleteAllOrders();
+        if (!result) {
+            res.status(400).json({ message: 'Delete orders failed', status: false });
+            return;
+        }
+        res.status(200).json({ message: 'Delete orders successfully', status: true });
+    } catch (error) {
+        res.status(500).json({ message: error.message, status: false });
+    }
+});
 
 module.exports = router;
