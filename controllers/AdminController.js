@@ -49,4 +49,30 @@ async function deleteAllOrders() {
     return false;
 }
 
-module.exports = { createAdmin, loginByAdmin, getAllOrders,deleteAllOrders };
+async function confirmOrder(order_id) {
+    try {
+        const order = await Orders.findById(order_id);
+        order.status = 'completed';
+        order.completed_at = Date.now();
+        await order.save();
+        return order;
+    } catch (error) {
+        console.log(error);
+    }
+    return null;
+}
+
+async function cancelOrder(order_id) {
+    try {
+        const order = await Orders.findById(order_id);
+        order.status = 'canceled';
+        order.canceled_at = Date.now();
+        await order.save();
+        return order;
+    } catch (error) {
+        console.log(error);
+    }
+    return null;
+}
+
+module.exports = { createAdmin, loginByAdmin, getAllOrders,deleteAllOrders, confirmOrder, cancelOrder};
