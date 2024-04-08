@@ -59,20 +59,19 @@ router.put('/confirmOrder', async function (req, res, next) {
     }
 });
 
-router.delete('/deleteAllOrders', async function (req, res, next) {
+router.put('/cancelOrder', async function (req, res, next) {
     try {
-        const result = await AdminController.deleteAllOrders();
-        if (!result) {
-            res.status(400).json({ message: 'Delete orders failed', status: false });
+        const { order_id } = req.body;
+        const order = await AdminController.cancelOrder(order_id);
+        if (!order) {
+            res.status(400).json({ message: 'Cancel order failed', status: false });
             return;
         }
-        res.status(200).json({ message: 'Delete orders successfully', status: true });
+        res.status(200).json({ order: order, status: true });
     } catch (error) {
         res.status(500).json({ message: error.message, status: false });
     }
 });
-
-
 // router.delete('/deleteAllOrders', async function (req, res, next) { 
 //     try {
 //         const result = await AdminController.deleteAllOrders();
