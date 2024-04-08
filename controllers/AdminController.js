@@ -48,4 +48,4 @@ async function deleteAllOrders() {
     return false;
 }
 
-module.exports = { createAdmin, loginByAdmin, getAllOrders };
+module.exports = { createAdmin, loginByAdmin, getAllOrders,deleteAllOrders };
