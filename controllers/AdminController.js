@@ -2,6 +2,7 @@ const Admins = require('../models/Admins');
 const Orders = require('../models/Orders');
 
 
+
 async function createAdmin(data) {
     try {
         const admin = new Admins(data);
@@ -36,4 +37,4 @@ async function getAllOrders() {
     return null;
 }
 
-module.exports = { createAdmin, loginByAdmin };
+module.exports = { createAdmin, loginByAdmin, getAllOrders };

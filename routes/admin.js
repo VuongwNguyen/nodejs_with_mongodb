@@ -32,4 +32,17 @@ router.post('/loginByAdmin', async function (req, res, next) {
     }
 });
 
+router.get('/getAllOrders', async function (req, res, next) {
+    try {
+        const orders = await AdminController.getAllOrders();
+        if (!orders) {
+            res.status(400).json({ message: 'Orders not found', status: false });
+            return;
+        }
+        res.status(200).json({ orders: orders, status: true });
+    } catch (error) {
+        res.status(500).json({ message: error.message, status: false });
+    }
+});
+
 module.exports = router;
