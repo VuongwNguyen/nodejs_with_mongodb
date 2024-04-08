@@ -30,7 +30,8 @@ async function loginByAdmin(username, password) {
 async function getAllOrders() {
     try {
         const orders = await Orders.find().populate('User_id').populate('products.product_id');
-        return orders;
+        // trả về mảng đảo ngược thứ tự các đơn hàng
+        return orders.reverse();
     } catch (error) {
         console.log(error);
     }
