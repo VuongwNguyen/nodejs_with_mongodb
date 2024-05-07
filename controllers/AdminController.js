@@ -75,4 +75,4 @@ async function cancelOrder(order_id) {
     return null;
 }
 
-module.exports = { createAdmin, loginByAdmin, getAllOrders,deleteAllOrders, confirmOrder, cancelOrder};
+module.exports = { createAdmin, loginByAdmin, getAllOrders, confirmOrder, cancelOrder};
