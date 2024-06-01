@@ -12,10 +12,10 @@ router.get('/', (req, res) => {
 router.post('/register', async function (req, res, next) {
     try {
         const { username, phone, email, password } = req.body;
-        const Security = req.headers['security'];
-        if (Security != security) {
-            return res.status(401).json({ message: 'Unauthorized', status: false });
-        }
+        // const Security = req.headers['security'];
+        // if (Security != security) {
+        //     return res.status(401).json({ message: 'Unauthorized', status: false });
+        // }
         const user = await UserController.register(username, phone, email, password);
         if (!user) {
             return res.status(400).json({ message: 'User not found', status: false });
